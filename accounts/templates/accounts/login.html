@@ -2,16 +2,6 @@
 
 {%  block HackatonFodr %}
 
-
-        <h1>Signalez les disfonctionnement chez vous </h1>
-
-    <ul>
-        <li><a href="{% url 'accounts:create_account' %}">Créer un compte</a></li>
-        <li><a href="{% url 'accounts:login' %}">Se connecter</a></li>
-        <li><a href="{% url 'accounts:logout' %}">Se déconnecter</a></li>
-    </ul>
-
-    <h1>Connectez-vous</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

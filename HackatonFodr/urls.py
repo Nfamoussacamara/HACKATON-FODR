@@ -18,13 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from accounts.views import signup, home, login_view, CreateSignal
+from accounts.views import signup, home, login_view, CreateSignal, logout
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('signup/', signup , name='signup'),
     path('login/', login_view, name='login'),
+    path('logout/', logout, name='logout'),
     path('signalerproblem/', CreateSignal.as_view(), name='signaler')
 ]
 

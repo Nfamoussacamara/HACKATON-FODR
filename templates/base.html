@@ -7,12 +7,17 @@
 <body>
 
 
-<h1>Signalez les disfonctionnement chez vous </h1>
-        <ul>
-        <li><a href="{% url 'signup' %}">Créer un compte</a></li>
-        <li><a href="{% url 'login' %}">Se connecter</a></li>
+<h1>SIGNALEZ LES DISFONCTIONNEMENT PRES  DE CHEZ VOUS</h1>
 
-    </ul>
+        <ul>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Se deconnecter</a></li>
+                <li><a href="{% url 'signaler' %}">Signaler un cas</a></li>
+            {% else  %}
+                <li><a href="{% url 'signup' %}">Créer un compte</a></li>
+                <li><a href="{% url 'login' %}">Se connecter</a></li>
+            {% endif %}
+        </ul>
 
 
 {% block HackatonFodr %}

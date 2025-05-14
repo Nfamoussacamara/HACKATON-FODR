@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.contrib.auth import get_user_model, authenticate, login
+from django.contrib.auth import get_user_model, authenticate, login,logout
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import CreateView, UpdateView
@@ -71,8 +71,10 @@ def login_view(request):
     return render(request, 'accounts/login.html', {'form': form})
 
 
-
-
+def logout_view(request):
+    logout(request)
+    messages.success(request, _("Vous avez été déconnecté avec succès."))
+    return redirect('home')  # Redirigez vers la page d'accueil
 
 
 class CreateSignal(CreateView):
